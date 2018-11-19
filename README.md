@@ -1,6 +1,6 @@
-# CSET-105: Intro To Web Applications
+# CSET-115: Technical Requirements
 
-View these notes at [ts-cset.github.io/cset-105/](https://ts-cset.github.io/cset-105/).
+View these notes at [ts-cset.github.io/cset-115/](https://ts-cset.github.io/cset-115/).
 
 
 ## Lecture Notes
@@ -12,11 +12,6 @@ When in a slideshow, use the following keys to navigate:
 - `<-`/`->` to move between slides
 - `p` to view presenter notes
 - `?` to get help
-
-
-## Labs
-
-Labs will be posted soon.
 
 
 ## Questions?
