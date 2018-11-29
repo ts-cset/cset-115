@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lecture: Automated Testing</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center
+
+# Automated Testing
+
+---
+
+# Why Test?
+
+- Bugs slow your work down
+- Bugs push users away
+- Bugs cost money
+- *Bugs happen*
+
+---
+count: false
+
+# Why Test?
+
+- Bugs slow your work down
+- Bugs push users away
+- Bugs cost money
+- *Bugs happen*
+
+.eleven[You get blamed.]
+
+---
+
+# Why don't you test?
+
+- It takes too long
+- You can't test everything
+- There's no value
+
+---
+count: false
+
+# Why don't you test?
+
+- It takes too long
+- You can't test everything
+- There's no value
+
+.eleven[Humans aren't good at complex, repetive tasks.]
+
+---
+class: center, middle
+
+# .eight[But computers are!]
+
+---
+
+# Automated tests...
+
+- can be run in the background.
+- can be as complex as necessary.
+- can act as documentation.
+- can prevent regression.
+- can be super fast!
+
+---
+
+# Before you begin:
+
+- What should you test?
+- When do you test it?
+- Do you need to test everything?
+- How much testing is enough?
+
+---
+
+# Types of Tests
+
+- Static
+- Unit
+- Integration
+- End to End
+
+---
+
+# Static Testing
+
+## .eight[Test the code as you write it, like a linter or type system.]
+
+---
+class: center
+
+![Measuring before cutting](https://media3.giphy.com/media/c5eqVJN7oNLTq/giphy.gif?cid=3640f6095c000b386d4c4a6941a5ee8d)
+
+---
+
+# Unit Testing
+
+## .eight[Test an individual part of your code, like a function or class.]
+
+---
+class: center
+
+![Opening the door](https://media1.giphy.com/media/7vvEFP9AiM5xe/giphy.webp?cid=3640f6095c000b386d4c4a6941a5ee8d)
+
+---
+
+# Integration Testing
+
+## .eight[Testing that parts of your code work together.]
+
+---
+class: center
+
+![A door and it's lock](http://i.imgur.com/0T9s95E.gif)
+
+---
+
+# End to End Testing
+
+## .eight[Automated click-through of an actual user workflow.]
+
+---
+
+<div style='position:relative; padding-bottom:56.25%'><iframe src='https://gfycat.com/ifr/DifficultTautCopperbutterfly' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;'></iframe></div>
+
+---
+
+# When do you test?
+
+- Waterfall: after you code
+- Agile: before you code
+
+---
+count:
+
+# When do you test?
+
+- Waterfall: after you code
+- Agile: before you code
+
+.eleven[This is a bit too simplified]
+
+---
+
+# Test-Driven Development
+
+1. Write a failing test.
+2. Write code to make it pass.
+3. Refactor and repeat.
+
+.eight[Makes the most sense for Unit Tests.]
+
+---
+
+# Do you need to test everything?
+
+---
+count: false
+
+# Do you need to test everything?
+
+- Follow the Pareto Principle
+- Test critical paths
+
+---
+
+# How much do you test?
+
+---
+count: false
+
+# How much do you test?
+
+## .eight[As much as you need to.]
+
+---
+class: center
+
+<img alt="Diminishing Returns" src="https://www.softslate.com/blog/wp-content/uploads/2011/08/testing_point_of_diminishing_returns1.png" width="75%" />
+
+---
+
+# Setup Tests
+
+- Install Node and npm
+- Install Jest
+- Learn JS Modules
+
+---
+
+# Node
+
+```bash
+$ node -v
+v10.11.0
+$ brew install node
+```
+
+---
+
+# NPM
+
+```bash
+$ mkdir jest-test
+$ cd jest-test
+$ npm init
+```
+
+---
+
+# Gitignore
+
+[Node gitignore](https://github.com/github/gitignore/blob/master/Node.gitignore)
+
+---
+
+# Install Packages
+
+```bash
+$ npm install --save-dev jest
+```
+
+---
+
+# Get Started With Jest
+
+Make `sum.js` file
+
+```js
+const sum = (a, b) => {
+  return a + b;
+};
+
+module.exports = sum;
+```
+
+---
+
+# Get Started With Jest
+
+Make `sum.test.js` file
+
+```js
+const sum = require('./sum');
+
+test('Adds 1 and 2 to get 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+---
+
+# NPM Scripts
+
+```js
+"scripts": {
+  "test": "jest"
+}
+```
+
+---
+
+# CommonJS Modules
+
+```js
+// funcs.js
+module.exports = { sum, diff };
+
+// funcs.test.js
+const { sum, diff } = require('./funcs');
+```
+
+---
+
+# [Jest Matchers](https://jestjs.io/docs/en/using-matchers)
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
