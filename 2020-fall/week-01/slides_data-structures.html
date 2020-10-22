@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Structures</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://ts-cset.github.io/cset-105/assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-115]</span><br>
+<span>.eight[Technical Requirements &amp; Data Structures]</span>
+
+# Data Structures
+
+---
+
+# Today's Goal
+
+To understand why data structures exist and how we can model the real world in code.
+
+---
+
+# Contents:
+
+- [Review JS Data Types](#types)
+- [Object Oriented Programming](#oop)
+- [Built-In Objects](#built-in)
+- [What Is A Data Structure](#data-structure)
+- [Make Your Own Data Structures](#custom)
+
+---
+name: types
+
+# JS Data Types
+
+- String
+- Number
+- Boolean
+- Empty value
+--
+count: false
+- Function
+--
+count: false
+- Object
+--
+count: false
+  - Array
+
+---
+
+# Objects
+
+```js
+const dog = {
+  name: "Spot",
+  bark: function() {
+    console.log("woof!");
+  }
+};
+```
+
+```js
+console.log(dog.name);
+// &rarr; "Spot"
+
+dog.bark()
+// &rarr; "woof!"
+```
+
+---
+
+# Objects
+
+## .eight[A generic collection of properties, key-value pairs.]
+
+---
+
+# Objects Elsewhere
+
+One of the most common data structures
+
+- Python: "Dictionaries"
+- PHP: "Associative Arrays"
+- Ruby, Perl: "Hashes"
+- Java, C++, and others: "Maps"
+
+[Wikipedia: Associative Array](https://en.wikipedia.org/wiki/Associative_array)
+
+---
+
+# Strings
+
+```js
+const greeting = "hello";
+
+console.log(greeting.length);
+// &rarr; 5
+
+greeting.toUpperCase();
+// &rarr; "HELLO"
+```
+
+--
+count: false
+
+String? or Object?
+
+---
+class: middle, center
+
+# .fourteen[It's a String.]
+
+
+---
+name: oop
+
+# Object Oriented Programming
+
+- Next semester
+- Generic Idea vs Specific Example
+- .eight[Class] vs .eight[Instance]
+
+```js
+String
+
+const str1 = "Alpha";
+const str2 = "Beta";
+```
+
+---
+
+# Object Oriented Programming
+
+Remember all those capitalized variables?
+
+- `String`
+- `Number`
+- `Boolean`
+- `Function`
+- `Object`
+- `Array`
+- `Math`
+- `Date`
+
+---
+
+# Object Oriented Programming
+
+## .eight[The capitalization is letting you know it's one of these special objects.]
+
+---
+
+# Prototypes
+
+- JavaScript isn't truly Object-Oriented
+- It's .eight[Prototypical]
+
+--
+
+But it's close enough.
+
+---
+name: built-in
+
+# Built-In Objects
+
+## [MDN Prototypes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) 
+
+If you haven't already, go look at the page for each of our primitive data types.
+
+---
+
+# Built-In Objects
+
+Some new ones:
+
+- Error
+- Date
+- RegExp
+
+---
+name: data-structure
+
+# What Is A Data Structure?
+
+_"A data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data."_
+
+[Wikipedia: Data structure](https://en.wikipedia.org/wiki/Data_structure)
+
+---
+
+# What Is A Data Structure?
+
+Defines:
+
+- How to .eight[store] the data
+- How to .eight[interact] with it
+
+--
+
+## .fourteen[A way to represent the real world in code.]
+
+---
+
+# Array
+
+- A container that holds indexed values
+- Functions:
+  - Add values to either side
+  - Remove values from either side
+  - Find the position of a value
+  - Iterate over values in order
+  - Split or join values
+  - etc.
+
+---
+
+# Set
+
+- A container that holds unique values
+- Functions:
+  - Add values
+  - Remove values
+  - Check if value exists
+  - Iterate over values in order
+
+---
+
+# Set vs Array
+
+- Arrays can contain duplicate values
+- Array elements can be accessed using integer indexes
+
+[MDN: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+---
+
+# Map
+
+- A container that holds keyed values
+- Functions:
+  - Set key's value
+  - Get key's value
+  - Check if key exists
+  - Remove key
+
+---
+
+# Map Examples
+
+- Phone or Address Book
+- Dictionary
+- Database
+
+---
+
+# Map vs Object
+
+- Before Maps existed, you just used Objects
+- But Objects are too generic
+- Maps are specialized for this purpose
+
+[MDN: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+---
+
+# But Why?
+
+If we can do the same things using regular Arrays and Objects, why have Sets and Maps?
+
+--
+
+Because they make things easier.
+
+---
+
+# Data Structures
+
+The goal is to pick the right data structure for the situation.
+
+--
+count: false
+
+.fourteen[But what if there isn't one?]
+
+---
+name: custom
+
+# Make Your Own Data Structures
+
+Here are common structures that JS doesn't have:
+
+- Linked List
+- Queue
+- Stack
+- Tree
+
+---
+
+# Linked List
+
+<a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia: Linked List</a>
+
+Examples:
+
+- Train or subway cars
+- Christmas lights
+- Effects pedals for a guitar
+
+
+---
+
+# Queue
+
+<a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">Wikipedia: Queue</a>
+
+Examples:
+
+- Line of customers
+- Network requests
+- Messages
+- JavaScript events
+
+--
+
+.eight[First In, First Out]
+
+---
+
+# Stack
+
+<a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Wikipedia: Stack</a>
+
+Examples:
+
+- Pile of books
+- Email inbox
+- Undo or back button history
+- JavaScript function calls
+
+--
+
+.eight[First In, Last Out]
+
+---
+
+# Tree
+
+<a href="https://en.wikipedia.org/wiki/Tree_(data_structure)">Wikipedia: Tree</a>
+
+Examples:
+
+- Family tree
+- Company Hierarchy
+- File system
+--
+
+count: false
+- Document Object Model
+
+---
+
+# DOM
+
+- A tree-like data structure built by the browser
+- Functions:
+  - Adding nodes
+  - Removing nodes
+  - Navigating the tree
+  - Finding nodes in the tree
+  - Altering properties of the node
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
