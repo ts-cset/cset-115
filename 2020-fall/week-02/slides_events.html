@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro To Events</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://ts-cset.github.io/cset-105/assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-115]</span><br>
+<span>.eight[Technical Requirements &amp; Data Structures]</span>
+
+# Intro To Events
+
+---
+
+# Today's Goal
+
+To understand concepts that allow us to start working with JavaScript events.
+
+---
+
+# Contents:
+
+- [Higher Order Functions](#fns)
+- [Array Methods](#arrays)
+- [Synchronous Code](#sync)
+- [Asynchronous Code](#async)
+- [Handling Events](#events)
+
+---
+
+# DOM Manipulation
+
+We learned how to:
+
+- Find Nodes
+- Navigate around the DOM tree
+- Add and remove nodes
+- Update their properties
+
+--
+count: false
+
+...everything we could already do with HTML and CSS.
+
+---
+
+# DOM Manipulation
+
+- These tools change the DOM _after_ it loads.
+- When the code is on the user's machine.
+- As a reaction to their actions.
+
+.fourteen[What kind of events can we think of?]
+
+---
+name: fns
+
+# Higher Order Functions
+
+## .eight[A function that takes another function as a parameter, or returns a function.]
+
+---
+
+# Higher Order Functions
+
+- Up till now, all our functions were First Order
+- This "order" is a math thing...
+
+JavaScript can do this because functions are First Class, meaning just like other values.
+
+---
+
+# First Order Function
+
+```js
+const add = function(x, y) {
+  return x + y;
+};
+
+add(10, 4);
+// &rarr; 14
+```
+
+---
+
+# Higher Order Function
+
+```js
+const addX = function(x) {
+  return function(y) {
+    return x + y;
+  };
+};
+
+const addTen = addX(10);
+
+addTen(4);
+// &rarr; 14
+```
+
+---
+
+# With Arrow Functions
+
+```js
+const addX = x =&gt; y =&gt; x + y;
+
+addX(10)(4);
+// &rarr; 14
+```
+
+- `() =&gt; {}`
+- Parens optional for one parameter
+- Brackets and return optional for one-line expression
+
+---
+
+# Abstraction
+
+Higher Order Functions can replace unnecessary details or repetition.
+
+- Log when function runs?
+- Repeat some action in a loop?
+- Do something to each element in array?
+
+---
+name: arrays
+
+# Array Methods
+
+Many methods follow this principle and are Higher Order Functions:
+
+- .eight[Filter]: get the elements that meet a condition
+- .eight[Map]: transform each element the same way
+- .eight[Reduce]: calculate one value from all elements
+
+---
+
+# Array Filter
+
+```js
+const isEven = (n) =&gt; n % 2 === 0;
+
+[1, 2, 3, 4].filter(isEven);
+// &rarr; [2, 4];
+```
+
+---
+
+# Array Map
+
+```js
+const square = (n) =&gt; n * n;
+
+[1, 2, 3, 4].map(square);
+// &rarr; [1, 4, 9, 16]
+```
+
+---
+
+# Array Reduce
+
+```js
+const sum = (total, num) =&gt; total + num;
+
+[1, 2, 3, 4].reduce(sum);
+// &rarr; 10
+```
+
+---
+name: sync
+
+# Synchronous Code
+
+Up till now, all our code has been run in sequence:
+
+- Line 1 happens
+- Line 2 happens
+- Line 3 happens
+- ...
+
+---
+
+# Synchronous Code
+
+Even when we write .eight[blocking] code:
+
+```js
+const blocking = function() {
+  alert("I'm in the way...");
+  console.log("...now I can go.");
+};
+
+blocking();
+```
+
+---
+
+# Blocking Examples
+
+- Waiting for input
+- Reading from files
+- Sending/Receiving data over network
+- Long calculations or loops
+
+---
+name: async
+
+# Asynchronous Code
+
+- Why wait for blocking code?!
+- Do other things while we wait
+
+--
+
+.eleven[Time is hard.]
+
+---
+
+# Asynchronous Code
+
+```js
+const nonBlocking = function() {
+  setTimeout(() =&gt; alert("I didn't block you"), 0);
+  console.log("I'm in front!");
+};
+
+nonBlocking();
+```
+
+---
+
+# Set Timeout
+
+```js
+setTimeout(action, milliseconds);
+```
+
+- Register some function to run after a time period
+- Higher Order Function + Async = .eight[Callback]
+
+---
+
+# Set Timeout
+
+```
+setTimeout(() =&gt; console.log("hello"), 1000);
+```
+--
+
+Will `alert()` still block this?
+
+---
+name: events
+
+# Events
+
+Events are added to a .eight[queue] structure to be handled when they can be.
+
+- Timeouts and Intervals
+- Clicks, Keypresses, Touch
+- Scrolling
+- etc.
+
+---
+
+# Events
+
+Working with events:
+
+- Create a .eight[handler], the function that will _handle_ the event
+- Register it on the window or element to .eight[listen] for the event
+
+--
+
+# Event Objects
+
+- Just like Errors and DOM Nodes, Events are objects
+- Properties are based on the type of event
+- The event object is given to your handler as a parameter
+
+[MDN Reference: Events](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
