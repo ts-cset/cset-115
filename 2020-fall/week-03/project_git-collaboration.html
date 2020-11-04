@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSET-115 | Week 3 | Project: Git Collaboration</title>
+
+    <link rel="stylesheet" href="https://ts-cset.github.io/cset-105/assets/slides.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="/cset-115">CSET-115</a>
+        <small>Week 3</small>
+      </h1>
+    </header>
+
+    <main>
+      <h2>Project: Git Collaboration</h2>
+
+      <p>
+        Last week you all worked on your own versions of the Adventure Game and converted it to work with JavaScript and the DOM. This week, we'll improve those projects. But not our own.
+      </p>
+
+      <p>
+        Instead, we'll practice the commands we learned to collaborate using git. We'll follow the workflow encouraged by GitHub and used for many open-source projects by creating Issues and submitting Pull Requests to your classmates' projects.
+      </p>
+
+      <hr>
+
+      <h3>Setup</h3>
+
+      <p>
+        <strong>Note:</strong> You should have done this during the code review, but here's the steps to view the code of a team mate's fork in your local repo in case you didn't or you forget them.
+      </p>
+
+      <ol>
+        <li>Open your terminal and change to your DOM Adventure Game repo: <code>cd code/dom-adventure-game</code></li>
+        <li>Make sure your repository doesn't have any un-committed changes: <code>git status</code></li>
+        <li>Go to GitHub and find their fork of the code on their account. Copy the git URL as if you were going to clone it.</li>
+        <li>Add their remote repo: <code>git remote add &lt;their-name&gt; &lt;their-url&gt;</code></li>
+        <li>Download their commits: <code>git fetch &lt;their-name&gt;</code></li>
+        <li>Make a new local branch to store their commits: <code>git branch &lt;new-branch&gt; &lt;their-name&gt;/&lt;their-branch&gt;</code>
+          <ul>
+            <li>Remember that the <code>/</code> character separates a remote and a branch name, so we shouldn't use it in new branch names.</li>
+            <li>An example is <code>zachfedor/main</code> which means the branch named "main" on a remote named "zachfedor".</li>
+            <li>A good branch name is short and concise, so your branch might be name "zachs-main" to represent your local copy of a remote branch.</li>
+            <li><em>You can't call it "main" too since you already have a "main" branch.</em></li>
+          </ul>
+        </li>
+        <li>Checkout their commits: <code>git checkout &lt;new-branch&gt;</code></li>
+      </ol>
+
+      <p>
+        To return to your branch, make sure the working directory is clean with <code>git status</code> and then use checkout to see whatever branch you want, like <code>git checkout main</code>.
+      </p>
+
+      <hr>
+
+      <h3>Instructions</h3>
+
+      <ol>
+        <li>During the code review for this project, you probably ran into something that could be improved on a classmate's project. Go to their repo on GitHub and submit at least <strong>2</strong> separate Issues for these improvements.
+          <ul>
+            <li>Improvements can be a bug fix, refactored code, or a new addition.</li>
+            <li>When writing issues, be respectful. You're trying to help the maintainer, and if they don't appreciate your comments then your issue won't be taken seriously.</li>
+            <li>Keep each issue atomic, or standalone. For example, "fix flexbox style and broken button" are really two separate issues, while "fix indentation problems" might be a bunch of changes across many files but is one overarching issue.</li>
+          </ul>
+        </li>
+        <li>While working on your <em>local</em> branch of <em>their</em> code, try to fix one of these issues. Imagine it's now your project, what do you need to do to satisfy the requirements of the Issue? Add and commit on their branch like normal.</li>
+        <li>When you're done, push your commits to <em>your</em> repo on GitHub. You can't push to theirs since you don't have access.</li>
+        <li>Visit <em>their</em> repo on GitHub and open a Pull Request.
+          <ul>
+            <li>Make sure you are targeting the correct remotes and branches. The arrow should point from your new code to their old code.</li>
+            <li>In the description, create a link to the original Issue you posted.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p>
+        To submit the project, post a link to the open Pull Request page that you created to your Slack channel. From there, the maintainer and I should be able to find the link to the original Issue.
+      </p>
+    </main>
+  </body>
+</html>
